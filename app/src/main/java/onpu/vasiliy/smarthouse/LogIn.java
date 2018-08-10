@@ -54,6 +54,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
             Toast toast = Toast.makeText(view.getContext(),R.string.wrong_password,Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.TOP,10,10);
             toast.show();
+
+            etPassword.getText().clear();
             return false;
         }
     }
