@@ -1,9 +1,19 @@
 <resources>
+    <!-- LogIn activity -->
     <string name="app_name">SmartHouse</string>
     <string name="smart_house">Умный дом</string>
     <string name="ip_address">IP адресс сервера</string>
     <string name="password">Введите пароль</string>
     <string name="connect">Подключиться</string>
     <string name="wrong_password">Неверный пароль или нет соединения с сервером</string>
+
+    <!-- Kitchen fragment -->
+    <string name="kitchen">КУХНЯ</string>
+
+    <!-- Bathroom fragment -->
+    <string name="bathroom">ВАННА</string>
+
+    <!-- Hall fragment -->
+    <string name="hall">ЗАЛ</string>
 
 </resources>
