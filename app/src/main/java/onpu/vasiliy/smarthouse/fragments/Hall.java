@@ -19,7 +19,7 @@ public class Hall extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_kitchen,container,false);
+        return inflater.inflate(R.layout.fragment_hall,container,false);
         //return super.onCreateView(inflater, container, false);
     }
 }
