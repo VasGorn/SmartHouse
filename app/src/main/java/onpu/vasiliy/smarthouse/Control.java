@@ -1,5 +1,6 @@
 package onpu.vasiliy.smarthouse;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,26 +22,24 @@ import onpu.vasiliy.smarthouse.fragments.Hall;
 import onpu.vasiliy.smarthouse.fragments.Kitchen;
 
 public class Control extends AppCompatActivity {
-    private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
-        //toolbar = findViewById(R.id.toolbar);
         viewPager = findViewById(R.id.viewpager);
         tabLayout = findViewById(R.id.tabs);
-
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setupViewPager(viewPager);
 
         tabLayout.setupWithViewPager(viewPager);
+
     }
+
 
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -51,7 +53,7 @@ public class Control extends AppCompatActivity {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager){
+        private ViewPagerAdapter(FragmentManager manager){
             super(manager);
         }
 
@@ -65,7 +67,7 @@ public class Control extends AppCompatActivity {
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title){
+        private void addFragment(Fragment fragment, String title){
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
