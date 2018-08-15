@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import onpu.vasiliy.smarthouse.R;
 
-public class Bathroom extends Fragment{
+public class Garage extends Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,7 @@ public class Bathroom extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_bathroom,container,false);
+        View view = inflater.inflate(R.layout.fragment_garage,container,false);
         return view;
     }
 }

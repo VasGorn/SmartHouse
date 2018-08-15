@@ -17,14 +17,15 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
+import onpu.vasiliy.smarthouse.fragments.Alarms;
 import onpu.vasiliy.smarthouse.fragments.Bathroom;
+import onpu.vasiliy.smarthouse.fragments.Garage;
 import onpu.vasiliy.smarthouse.fragments.Hall;
 import onpu.vasiliy.smarthouse.fragments.Kitchen;
 
 public class Control extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +38,25 @@ public class Control extends AppCompatActivity {
         setupViewPager(viewPager);
 
         tabLayout.setupWithViewPager(viewPager);
-
+        setupTabsIcon();
     }
-
 
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Bathroom(), getResources().getString(R.string.bathroom));
         adapter.addFragment(new Hall(), getResources().getString(R.string.hall));
+        adapter.addFragment(new Bathroom(), getResources().getString(R.string.bathroom));
         adapter.addFragment(new Kitchen(), getResources().getString(R.string.kitchen));
+        adapter.addFragment(new Garage(), getResources().getString(R.string.garage));
+        adapter.addFragment(new Alarms(), getResources().getString(R.string.alarms));
         viewPager.setAdapter(adapter);
+    }
+
+    private void setupTabsIcon(){
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_hall);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_bathroom);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_kitchen);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_garage);
+        tabLayout.getTabAt(4).setIcon(R.drawable.ic_alert);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter{

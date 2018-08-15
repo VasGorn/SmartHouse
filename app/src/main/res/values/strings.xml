@@ -16,4 +16,15 @@
     <!-- Hall fragment -->
     <string name="hall">ЗАЛ</string>
 
+    <!-- garage fragment -->
+    <string name="garage">ГАРАЖ</string>
+
+    <!-- alarm and security fragment -->
+    <string name="alarms">БЕЗОПАСНОСТЬ</string>
+
+    <!-- Lamp toggle button -->
+    <string name="on">Вкл</string>
+    <string name="off">Выкл</string>
+
+
 </resources>
