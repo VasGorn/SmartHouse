@@ -29,5 +29,10 @@
     <string name="on">Вкл</string>
     <string name="off">Выкл</string>
 
+    <string name="temperature">Температура:</string>
+    <string name="humidity">Влажность:</string>
+
+    <string name="not_available">N/A</string>
+
 
 </resources>
