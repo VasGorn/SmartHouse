@@ -25,4 +25,18 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <Switch
+        android:id="@+id/switch4"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="205dp"
+        android:showText="true"
+        android:splitTrack="true"
+        android:text="@string/gate"
+        android:textOff="@string/gate_close"
+        android:textOn="@string/gate_open"
+        android:textSize="24sp" />
+
 </RelativeLayout>

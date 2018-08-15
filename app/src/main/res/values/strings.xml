@@ -18,6 +18,9 @@
 
     <!-- garage fragment -->
     <string name="garage">ГАРАЖ</string>
+    <string name="gate">Ворота:</string>
+    <string name="gate_open">открыть</string>
+    <string name="gate_close">закрыть</string>
 
     <!-- alarm and security fragment -->
     <string name="alarms">БЕЗОПАСНОСТЬ</string>
