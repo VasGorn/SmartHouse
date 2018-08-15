@@ -7,17 +7,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
-    <style name="Widget.Button.Toggle" parent="android:Widget">
+
+    <style name="toggleButtonLamp"  parent="@android:style/Theme.Black">
         <item name="android:background">@drawable/ic_toggle_lamp_bg</item>
         <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
     </style>
 
-
-    <style name="toggleButton"  parent="@android:style/Theme.Black">
-        <item name="android:buttonStyleToggle">@style/Widget.Button.Toggle</item>
-        <!--<item name="android:textOn"></item>
-        <item name="android:textOff"></item>-->
+    <style name="toggleButtonLock"  parent="@android:style/Theme.Black">
+        <item name="android:background">@drawable/ic_toggle_lock_bg</item>
+        <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
     </style>
 
 </resources>
