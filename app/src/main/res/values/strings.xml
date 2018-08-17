@@ -6,6 +6,7 @@
     <string name="password">Введите пароль</string>
     <string name="connect">Подключиться</string>
     <string name="wrong_password">Неверный пароль или нет соединения с сервером</string>
+    <string name="remember_me">Запомнить данные</string>
 
     <!-- Kitchen fragment -->
     <string name="kitchen">КУХНЯ</string>
