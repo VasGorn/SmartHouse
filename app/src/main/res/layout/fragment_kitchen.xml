@@ -15,7 +15,7 @@
         android:textStyle="bold" />
 
     <ToggleButton
-        android:id="@+id/tbLampHall"
+        android:id="@+id/tbLampKitchen"
         style="@style/toggleButtonLamp"
         android:layout_width="90dp"
         android:layout_height="90dp"

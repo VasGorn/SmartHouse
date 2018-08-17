@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import onpu.vasiliy.smarthouse.http.Const;
 import onpu.vasiliy.smarthouse.http.HttpHandler;
 
 public class LogIn extends AppCompatActivity implements View.OnClickListener{
@@ -76,7 +77,6 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                 }
             }
         });
-
     }
 
     @Override
@@ -160,6 +160,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
                     saveLoginAndPassword();
                 }
 
+                Const.URL_SERVER = ip;
+
                 Intent intent = new Intent(LogIn.this, Control.class);
                 startActivity(intent);
             }
@@ -175,7 +177,6 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
         editor.putString(KEY_PASSWORD, password);
 
         editor.apply();
-
     }
 
 }

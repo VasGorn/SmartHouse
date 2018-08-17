@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -21,8 +22,37 @@ public class HttpHandler {
     public String postLogin(String reqUrl, String password){
         String response = null;
         try {
-            URL url = new URL(reqUrl);
             String param = "password=" + URLEncoder.encode(password,"UTF-8");
+
+            response = postRequest(reqUrl, param);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
+
+    public String toggleLamp(String reqUrl, String room, String state){
+        String response = null;
+        try {
+            String param = "room=" + URLEncoder.encode(room,"UTF-8") +
+                    "&state=" + URLEncoder.encode(state,"UTF-8");
+
+            response = postRequest(reqUrl, param);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
+
+    //---------------------------------------------------------------------------------------
+    private String postRequest(String reqUrl, String param){
+        String response = null;
+        try {
+            URL url = new URL(reqUrl);
 
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setDoOutput(true);
@@ -41,7 +71,7 @@ public class HttpHandler {
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,7 +79,7 @@ public class HttpHandler {
         return response;
     }
 
-    //---------------------------------------------------------------------------------------
+
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
@@ -68,7 +98,6 @@ public class HttpHandler {
                 e.printStackTrace();
             }
         }
-
         return sb.toString();
     }
 }
