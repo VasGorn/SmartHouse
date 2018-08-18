@@ -12,7 +12,7 @@ import onpu.vasiliy.smarthouse.http.Const;
 import onpu.vasiliy.smarthouse.http.HttpHandler;
 
 public class LampChangeTask extends AsyncTask<String,Void,Void>{
-    private String TAG = LogIn.class.getSimpleName();
+    private String TAG = LampChangeTask.class.getSimpleName();
     private int success;
 
     @Override

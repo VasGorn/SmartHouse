@@ -48,6 +48,34 @@ public class HttpHandler {
         return response;
     }
 
+    public String setSecure(String reqUrl, String state){
+        String response = null;
+        try {
+            String param = "secure=" + URLEncoder.encode(state,"UTF-8");
+
+            response = postRequest(reqUrl, param);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
+
+    public String setSound(String reqUrl, String state){
+        String response = null;
+        try {
+            String param = "sound=" + URLEncoder.encode(state,"UTF-8");
+
+            response = postRequest(reqUrl, param);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
+
     //---------------------------------------------------------------------------------------
     private String postRequest(String reqUrl, String param){
         String response = null;

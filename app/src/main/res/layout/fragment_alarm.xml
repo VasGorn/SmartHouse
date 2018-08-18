@@ -14,7 +14,7 @@
         android:textStyle="bold" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/cbSecure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -24,7 +24,7 @@
         android:textSize="30sp" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/cbSound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
