@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -25,6 +26,8 @@ import onpu.vasiliy.smarthouse.http.HttpHandler;
 
 public class Hall extends Fragment{
     private ToggleButton tbLamp;
+    private TextView txtTempr;
+    private TextView txtHum;
     private Button btnRefresh;
 
     @Override
@@ -37,6 +40,8 @@ public class Hall extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_hall,container,false);
         tbLamp = view.findViewById(R.id.tbLampHall);
+        txtTempr = view.findViewById(R.id.txtTempeValue);
+        txtHum = view.findViewById(R.id.txtHumidValue);
         btnRefresh = view.findViewById(R.id.btnRefresh);
 
         tbLamp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -55,7 +60,7 @@ public class Hall extends Fragment{
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO Display temperature and humidity...
+                new TempHumTask().execute("1");
             }
         });
 
@@ -66,6 +71,8 @@ public class Hall extends Fragment{
     private class TempHumTask extends AsyncTask<String,Void,Void> {
         private String TAG = Garage.class.getSimpleName();
         private int success;
+        private int tempr;
+        private int hum;
 
         @Override
         protected void onPreExecute() {
@@ -76,9 +83,9 @@ public class Hall extends Fragment{
         protected Void doInBackground(String... params) {
 
             HttpHandler sh = new HttpHandler();
-            String url = "http://" + Const.URL_SERVER + "/smart_house/set_garage.php";
+            String url = "http://" + Const.URL_SERVER + "/smart_house/get_tempe_hum.php";
 
-            String jsonStr = sh.setGarage(url, params[0]);
+            String jsonStr = sh.getData(url, params[0]);
 
             Log.e(TAG, "Response from url: " + jsonStr);
 
@@ -86,12 +93,8 @@ public class Hall extends Fragment{
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
                     success = jsonObj.getInt("success");
-
-                    if(success == 1) {
-
-                    }else if(success == 2){
-
-                    }
+                    tempr = jsonObj.getInt("tempr");
+                    hum = jsonObj.getInt("hum");
 
                 } catch (final JSONException e) {
                     e.printStackTrace();
@@ -104,6 +107,13 @@ public class Hall extends Fragment{
 
         @Override
         protected void onPostExecute(Void result){
+            if(success == 1) {
+                txtTempr.setText(String.valueOf(tempr));
+                txtHum.setText(String.valueOf(hum));
+            }else if(success == 2){
+                txtTempr.setText("N/A");
+                txtHum.setText("N/A");
+            }
             super.onPostExecute(result);
         }
     }

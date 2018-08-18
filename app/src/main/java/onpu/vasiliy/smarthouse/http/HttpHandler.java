@@ -90,6 +90,20 @@ public class HttpHandler {
         return response;
     }
 
+    public String getData(String reqUrl, String state){
+        String response = null;
+        try {
+            String param = "data=" + URLEncoder.encode(state,"UTF-8");
+
+            response = postRequest(reqUrl, param);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return response;
+    }
+
     //---------------------------------------------------------------------------------------
     private String postRequest(String reqUrl, String param){
         String response = null;
