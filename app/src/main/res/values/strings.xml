@@ -18,6 +18,7 @@
 
     <!-- Hall fragment -->
     <string name="hall">ЗАЛ</string>
+    <string name="refresh">Обновить</string>
 
     <!-- garage fragment -->
     <string name="garage">ГАРАЖ</string>

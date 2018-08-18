@@ -26,7 +26,7 @@
         android:textStyle="bold" />
 
     <Switch
-        android:id="@+id/switch4"
+        android:id="@+id/swtGate"
         android:layout_width="230dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
